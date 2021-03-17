@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layout"
+        android:text="@string/login_activity"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="#FF9800"/>
+
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/login_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#a6a9b6"
+            android:hint="@string/login"
+            android:background="@drawable/bacground_editext"
+            android:layout_marginTop="8dp"
+            android:autofillHints="" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/laypass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_edit"
+            android:layout_margin="16dp">
+
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bacground_editext"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="@string/password"
+                android:layout_centerHorizontal="true"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColorHint="#a6a9b6"
+                android:textCursorDrawable="@null"/>
+
+            <ImageView
+                android:id="@+id/show_pass_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:alpha=".5"
+                android:padding="5dp"
+                android:onClick="ShowHidePass"
+                android:src="@drawable/ic_baseline_visibility"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/laypass"
+                app:layout_constraintTop_toTopOf="@+id/password_edit" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:id="@+id/progress_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/laypass"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:maxHeight="20dip"
+                android:minHeight="20dip"
+                android:layout_weight="1"
+                android:progress="0"/>
+            <TextView
+                android:id="@+id/password_strength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/weak"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:id="@+id/login_instructions"
+            android:visibility="invisible"
+            android:layout_below="@id/progress_horizontal"
+            android:text="@string/your_password_must_be_at_least_8_characters_with_at_least_1_number_and_1_special_character" />
+
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_instructions"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:background="@drawable/bacground_button"
+            android:layout_marginTop="8dp"
+            android:text="@string/sign_in" />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <stroke
+        android:width="@dimen/cardview_default_radius"
+        android:color="#FF9800">
+
+    </stroke>
+
+    <corners android:radius="16dp">
+
+    </corners>
+
+
+</shape>
